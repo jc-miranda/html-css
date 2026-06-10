@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Idroid';
+    src: url(fontes/idroid.otf) format('opentype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Khand:wght@300;400;500;600;700&family=Libertinus+Serif+Display&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+body {
+    background-color: #84E1AD;
+    margin: 0px;
+}
+
+/* Configuração da folha branca centralizada */
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    max-width: 1000px;         /* Limita a largura do texto */
+    min-width: 300px;
+    margin: auto;              /* Centraliza o bloco na tela */
+    padding: 20px;             /* Desgruda o texto das bordas brancas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.185);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.titulodahistoria {
+    background-image: linear-gradient(to right, #C5EBD6, white); /* Gradiente suave nos títulos */
+    padding: 5px 10px;
+    color: #234418;
+    font-family: 'Idroid', sans-serif;
+}
+
+header {
+    background-image: linear-gradient(to bottom, #346124, #1a3312); /* Tons de verde do projeto */
+    text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.377);
+    color: white;
+    font-family: "DM Serif Display", serif;
+    font-style: normal;
+    text-align: center;
+    font-size: 1.8em;
+    margin: 0px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.descricao-topo {
+    font-size: 0.6em;
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+nav {
+    text-align: left;
+    padding-left: 20px;
+}
+
+nav > a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 0.5em;
+}
+
+nav > a:hover {
+    text-decoration: underline;
+    color: #84E1AD;
+}
+
+/* Modificado para classe .container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.container > img {
+    max-width: 100%; /* Impede que imagens grandes estourem a tela */
+}
+
+p {
+    text-align: justify;
+    line-height: 1.5em; /* Melhora o espaçamento das linhas para ler */
+    margin-bottom: 15px;
+}
+
+.descricao {
+    text-align: center;
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+strong {
+    color: #234418;
+    font-weight: bold;
+}
+
+/* Box do Vídeo */
+.video {
+    display: flex;
+    justify-content: center;
+    background-color: #234418;
+    padding: 15px;
+    margin: 20px 0px;
+}
+
+.video iframe {
+    max-width: 100%;
+}
+
+/* Box "Quer aprender mais?" */
+aside.extra {
+    background-color: #C5EBD6;
+    text-align: left;
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a barra do título h3 não passe das bordas arredondadas */
+    margin-top: 30px;
+}
+
+aside.extra > h3 {    
+    color: white;
+    background-color: #234418;
+    margin: 0px;
+    padding: 10px;
+}
+
+.txt-extra {
+    padding: 10px 15px;
+    margin: 0px;
+}
+
+/* Lista em duas colunas */
+aside.extra > ul {
+    columns: 2;
+    list-style-position: inside;
+    list-style-type: none; /* Remove as bolinhas padrão */
+    padding: 10px 15px;
+}
+
+aside.extra li {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+}
+
+aside.extra li img {
+    vertical-align: middle;
+    margin-right: 5px;
+}

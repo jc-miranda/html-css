@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    font-size: 1.5em;
+    background-image: linear-gradient(to right, #FFFCEC, #F5F0DB);
+}
+
+p {
+    text-align: left;
+}
+
+h1{
+    font-size: 3em;
+    text-decoration: underline;
+    background-color: white;
+    text-align: center;
+    width: 550px;
+    height: 350px;
+    padding: 15px;
+    border: 5px solid black; /* ordem: espessura, estilo, cor*/
+    margin: auto auto 40px auto;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+    border: 3px groove black;
+    padding: 5px;
+    background-color: white;
+}
+
+a:hover {
+    color: darkred;
+}
+
+a:active {
+    color: rgb(58, 6, 6);
+}

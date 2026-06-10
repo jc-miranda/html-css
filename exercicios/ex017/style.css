@@ -1,0 +1,31 @@
+ @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libertinus+Serif+Display&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+        body {
+            text-align: justify;
+            font-size: normal;
+            font-weight: normal;
+            background-image: linear-gradient(to right, #F5DDDD, #C2B2B4) ;
+        }
+
+        h1 {
+            font-family: "DM Serif Display", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 3em;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: "Spline Sans Mono", monospace;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-size: 2em;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 20px;
+            text-indent: 20px;
+        }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+    <title>Teste Imagem Pessoal</title>
+</head>
+<body>
+    <h1>Este sou eu</h1>
+    <p>Você consegue me ver em diversos tipos de dimensões.</p>
+
+    <picture>
+        <source media="(max-width: 700px)" srcset="imagens-2/joao-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens-2/joao-m.png" type="image/png">
+        <img src="imagens-2/joao-g.png" alt="Imagem flexível">
+    </picture>
+
+    <h1>Reproduzindo Áudio</h1>
+    <audio preload="metadata" controls autoplay>
+        <source src="midias/Inspired-neffex.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>

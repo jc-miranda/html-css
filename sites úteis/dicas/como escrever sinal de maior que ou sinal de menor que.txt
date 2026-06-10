@@ -1,0 +1,3 @@
+No lugar de <, escrevemos &lt; (significa Less Than ou Menor Que)
+
+No lugar de >, escrevemos &gt; (significa Greater Than ou Maior Que)
