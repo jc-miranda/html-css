@@ -7,19 +7,26 @@
     <style>
         body {
             height: 98vh;
-            background-position: center center;
+            position: relative;
+            background-repeat: no-repeat;
             background-image: url(imagens/espaco.jpg);
+            background-size: cover;
         }
 
-        img {
-            display: block;
+        #conteudo {
+            left: 50%;
+            top: 50%;
+            position: absolute;
             background-position: center center;
-            margin: auto;
+            transform: translate(-50%, -50%);
         }
-
     </style>
 </head>
 <body>
-    <img src="imagens/astronauta.png" alt="astronauta">
+    <main>
+        <section>
+                <img src="imagens/astronauta.png" alt="astronauta" id="conteudo">
+        </section>
+    </main>
 </body>
 </html>
