@@ -19,6 +19,10 @@ thead, .medianota {
     color: white;
 }
 
+.medianota {
+    text-align: left;
+}
+
 .num {
     text-align: center;
 }
