@@ -22,7 +22,6 @@
             position: relative;
         }
 
-        /* Corações flutuantes de fundo */
         .fundo-coracoes {
             position: absolute;
             width: 100%;
@@ -33,19 +32,18 @@
             pointer-events: none;
         }
 
-        /* Container Principal */
         .card {
             text-align: center;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            padding: 50px 40px;
+            padding: 50px 30px;
             border-radius: 30px;
             box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2);
-            max-width: 450px;
+            max-width: 420px;
             width: 90%;
             z-index: 10;
             border: 2px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.5s ease;
+            transition: transform 0.5s ease;
         }
 
         .emoji-principal {
@@ -56,7 +54,7 @@
 
         h1 {
             color: #ff4d6d;
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             margin-bottom: 10px;
             font-weight: 800;
         }
@@ -67,30 +65,29 @@
             margin-bottom: 35px;
         }
 
-        /* Área dos Botões */
         .botoes {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
             height: 60px;
             position: relative;
         }
 
         button {
-            padding: 16px 40px;
+            padding: 16px 35px;
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
             border-radius: 50px;
             border: none;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.2s ease;
         }
 
         #btn-sim {
             background: linear-gradient(135deg, #ff4d6d 0%, #ff758f 100%);
             color: white;
+            transition: transform 0.2s;
         }
 
         #btn-sim:hover {
@@ -102,14 +99,10 @@
             background-color: #f0f0f0;
             color: #666;
             position: absolute;
+            /* Removemos a transição de movimento. Agora ele "teleporta" instantaneamente, 
+               o que impede o clique acidental no celular! */
         }
 
-        /* Tela de Sucesso Escondida */
-        .sucesso {
-            display: none;
-        }
-
-        /* Animações */
         @keyframes pulsar {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -119,10 +112,8 @@
 </head>
 <body>
 
-    <!-- Corações flutuantes gerados por JS vão aqui -->
     <div class="fundo-coracoes" id="coracoes"></div>
 
-    <!-- CARD DO PEDIDO -->
     <main class="card" id="conteudo-card">
         <div class="emoji-principal">💝</div>
         <h1>Quer namorar comigo?</h1>
@@ -130,58 +121,58 @@
         
         <div class="botoes">
             <button id="btn-sim" onclick="aceitou()">SIM!</button>
-            <button id="btn-nao" onmouseover="foge()" onclick="foge()">NÃO</button>
+            <button id="btn-nao" onmouseover="foge()" ontouchstart="foge()" onclick="foge()">NÃO</button>
         </div>
     </main>
 
-    <!-- Música de fundo (Opcional: troque o link se quiser outra) -->
     <audio id="musica" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
 
     <script>
-        // Faz o botão NÃO fugir de forma inteligente
+        // Posiciona o botão NÃO dinamicamente no início para alinhar com o SIM
+        window.onload = function() {
+            const btnSim = document.getElementById('btn-sim');
+            const btnNao = document.getElementById('btn-nao');
+            btnNao.style.left = (btnSim.offsetLeft + btnSim.offsetWidth + 20) + 'px';
+            btnNao.style.top = btnSim.offsetTop + 'px';
+        };
+
         function foge() {
             const btnNao = document.getElementById('btn-nao');
             
-            // Tenta dar play na música na primeira tentativa de clique da pessoa (interação)
             document.getElementById('musica').play().catch(() => {});
 
-            // Margem de segurança para o botão não sumir para fora da tela
-            const padding = 100;
-            const larguraTela = window.innerWidth - padding;
-            const alturaTela = window.innerHeight - padding;
+            const larguraJanela = window.innerWidth;
+            const alturaJanela = window.innerHeight;
+
+            // Deixa uma margem extra nas bordas para o botão nunca sumir metade para fora da tela do celular
+            const limiteX = larguraJanela - btnNao.offsetWidth - 20;
+            const limiteY = alturaJanela - btnNao.offsetHeight - 20;
             
-            // Força a posição a ser na tela inteira, ignorando o container
-            const novoX = Math.random() * (larguraTela - 50) + 25;
-            const novoY = Math.random() * (alturaTela - 50) + 25;
+            const novoX = Math.max(10, Math.floor(Math.random() * limiteX));
+            const novoY = Math.max(10, Math.floor(Math.random() * limiteY));
             
             btnNao.style.left = novoX + 'px';
             btnNao.style.top = novoY + 'px';
         }
 
-        // Função executada ao clicar em SIM
         function aceitou() {
             const card = document.getElementById('conteudo-card');
-            
-            // Transforma o conteúdo do card atual em uma linda tela de sucesso
             card.style.transform = "scale(0)";
             
             setTimeout(() => {
                 card.innerHTML = `
                     <div style="font-size: 5rem; animation: pulsar 1s infinite;">💖</div>
-                    <h1 style="color: #ff4d6d; font-size: 2.5rem; margin-top: 15px;">EBAAA! 😍</h1>
-                    <p style="font-size: 1.3rem; margin-top: 15px; color: #333;">
-                        Você acabou de fazer a melhor escolha da sua vida! <br>
+                    <h1 style="color: #ff4d6d; font-size: 2.2rem; margin-top: 15px;">EBAAA! 😍</h1>
+                    <p style="font-size: 1.2rem; margin-top: 15px; color: #333; padding: 0 10px;">
+                        Você acabou de fazer a melhor escolha da sua vida! <br><br>
                         <b>Te amo muito! ❤️</b>
                     </p>
                 `;
                 card.style.transform = "scale(1)";
-                
-                // Chuva de confetes/corações contínua
                 setInterval(criarCoracao, 150);
             }, 500);
         }
 
-        // Gera corações fofos flutuando no fundo
         function criarCoracao() {
             const fundo = document.getElementById('coracoes');
             const coracao = document.createElement('div');
@@ -196,19 +187,16 @@
             
             fundo.appendChild(coracao);
 
-            // Anima o coração subindo
             setTimeout(() => {
                 coracao.style.transform = `translateY(-110vh) rotate(${Math.random() * 360}deg)`;
                 coracao.style.opacity = '0';
             }, 100);
 
-            // Deleta o elemento depois que a animação acaba para não travar o PC
             setTimeout(() => {
                 coracao.remove();
             }, 4000);
         }
 
-        // Começa a soltar corações bem devagar no fundo logo ao abrir o site
         setInterval(criarCoracao, 1000);
     </script>
 </body>
